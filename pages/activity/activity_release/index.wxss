@@ -1,0 +1,18 @@
+/* pages/activity/activity_release/index.wxss */
+.left-tit {
+  font-size: 11pt;
+  margin-right: 12px;
+  text-align: justify;
+  color: #646566;
+}
+.right-tit {
+  margin-top: 5px;
+  font-size: 12pt;
+  color: #b2b2b2;
+}
+.cell-tit {
+  height: 20px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}

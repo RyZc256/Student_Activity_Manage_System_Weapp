@@ -1,0 +1,9 @@
+<!--pages/fileManage/index/index.wxml-->
+<van-sidebar active-key="{{ activeKey }}">
+  <van-sidebar-item title="文件浏览" />
+  <van-sidebar-item title="文件收集" disabled="{{ permissions }}" />
+  <van-sidebar-item title="文件上传" />
+  <van-sidebar-item title="文件下载" />
+</van-sidebar>
+<van-cell title="选择单个日期" value="{{ date }}" bind:click="onDisplay" />
+<van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />

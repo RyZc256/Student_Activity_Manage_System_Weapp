@@ -1,0 +1,28 @@
+<!--pages/user/organize_Info/index.wxml-->
+<van-panel title="班级信息" style="text-align: center;">
+</van-panel>
+
+<van-search value="{{ keyword }}" placeholder="请输入搜索关键词" bind:change="keyword_search" />
+
+<block wx:if="{{ isAdmin }}">
+  <van-dropdown-menu>
+    <van-dropdown-item value="{{ dropdowncurrent }}" options="{{ option }}" bind:change="dropdownChange" />
+  </van-dropdown-menu>
+</block>
+
+
+<van-cell-group>
+    <van-cell title="学院" value="{{ classInfo.college.name }}" />
+    <van-cell title="班级" value="{{ classInfo.name }}" />
+    <van-cell title="辅导员" value="{{ classInfo.administrator.name }}" bind:click="view_admininfo" />
+</van-cell-group>
+<van-divider />
+
+<van-panel title="班级成员 {{ usercount }} 人" style="text-align: left;">
+</van-panel>
+
+<van-cell-group>
+    <van-cell wx:for="{{ userInfo }}" title="{{ item.name }}" value="联系电话: {{ item.tel }}" id="{{ item.tel }}" icon="phone-o" bind:click="calltel"/>
+</van-cell-group>
+
+<van-toast id="van-toast"  />

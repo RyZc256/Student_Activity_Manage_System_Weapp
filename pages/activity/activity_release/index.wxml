@@ -1,0 +1,24 @@
+<!--pages/activity/activity_release/index.wxml-->
+<van-panel title="发布活动" style="text-align: center;">
+  
+  <view>
+    <van-cell-group>
+        <van-field label="活动名名称" id="name" border="{{ false }}" model:value="{{ activity.name }}" required/>
+        <van-field label="报名开始时间" id="regiser_time" border="{{ false }}" model:value="{{ activity.regiser_time }}" placeholder="{{ activity.regiser_time }}" readonly bind:click-input="SelectDateTime" />
+        <van-field label="报名结束时间" id="cutoff_time" border="{{ false }}" model:value="{{ activity.cutoff_time }}"  readonly bind:click-input="SelectDateTime"/>
+        <view class="cell-tit">
+            <view class="left-tit">人数限制</view><van-stepper style="text-align: right;" value="{{ 1 }}" bind:change="onChange" integer="{{ true }}"/>
+        </view>
+        <van-field label="活动开始时间" id="start_time" border="{{ false }}" model:value="{{ activity.start_time }}" readonly bind:click-input="SelectDateTime" required/>
+        <van-field label="活动结束时间" id="end_time" border="{{ false }}" model:value="{{ activity.end_time }}" readonly bind:click-input="SelectDateTime" required/>
+        <van-field label="活动地址" id="address" border="{{ false }}" model:value="{{ activity.address }}" readonly bind:click-input="location" required/>
+        <van-field label="教室" id="detailaddress" border="{{ false }}" model:value="{{ detailaddress }}" bind:blur="detaillocalt" />
+        <van-field label="活动负责学生" id="user" border="{{ false }}" model:value="{{ activity.user }}" />
+        <van-field label="活动细节" id="detail" border="{{ false }}" model:value="{{ activity.detail }}" />
+    </van-cell-group>
+  </view>
+  <block wx:if="{{ isdatetimeSelect }}">
+    <van-datetime-picker title="选择时间"  type="datetime" value="{{ currentDate }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:input="onInput" bind:confirm="comformSelectDateTime" bind:cancel="cancelSelectDateTime" />
+  </block>
+  
+</van-panel>

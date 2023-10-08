@@ -1,0 +1,73 @@
+<!--pages/index/index.wxml-->
+<van-notify id="van-notify" />
+<!-- 头部滚动通知 -->
+<van-notice-bar left-icon="volume-o" text="{{ notice }}"/>
+
+
+<!-- 头部滚动图 -->
+<van-panel title="热门活动">
+    <view style="padding: 15px;">
+      <swiper class="banner" indicator-dots indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff" autoplay interval="3000" circular>
+        <swiper-item wx:for="{{ scrollPoster }}">
+          <image src= "{{ item.poster }}"  mode="widthFix"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+</van-panel>
+<van-divider contentPosition="center" borderColor="#B01C34">功能中心</van-divider>
+
+<!-- 六宫格 -->
+<van-grid column-num="3">
+  <van-grid-item icon="flag-o" text="活动中心" icon-color="#B01C34" bindtap="test" is-link link-type="navigateTo" url="/pages/activity/index/index" />
+  <van-grid-item icon="points" text="文件管理" icon-color="#B01C34" is-link link-type="navigateTo" url="/pages/file/index/index"  />
+  <van-grid-item icon="more-o" text="更多功能" icon-color="#B01C34" bindtap="test" />
+</van-grid>
+
+<!--  底部导览栏 -->
+<van-tabbar active="{{ active }}" bind:change="onChange" active-color="#B01C34" inactive-color="#000">
+  <van-tabbar-item id="index">
+    <image
+      slot="icon"
+      src="{{ tabbar_icon.index }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    <image
+      slot="icon-active"
+      src="{{ tabbar_icon.indexfill }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    首页
+  </van-tabbar-item>
+  <van-tabbar-item id="scan" info="{{ tip }}">
+    <image
+      slot="icon"
+      src="{{ tabbar_icon.scan }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    <image
+      slot="icon-active"
+      src="{{ tabbar_icon.scan }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    签到
+  </van-tabbar-item>
+  <van-tabbar-item id="mine">
+    <image
+      slot="icon"
+      src="{{ tabbar_icon.mine }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    <image
+      slot="icon-active"
+      src="{{ tabbar_icon.minefill }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    个人中心
+  </van-tabbar-item>
+</van-tabbar>

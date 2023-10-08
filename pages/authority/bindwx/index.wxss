@@ -1,0 +1,5 @@
+/* pages/authority/bindwx/index.wxss */
+button{
+  text-align: center; 
+  width: 75%;
+}

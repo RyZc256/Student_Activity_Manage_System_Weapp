@@ -1,0 +1,5 @@
+/* pages/user/info/index.wxss */
+button{
+  text-align: center; 
+  width: 75%;
+}

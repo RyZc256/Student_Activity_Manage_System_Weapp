@@ -1,0 +1,19 @@
+// 配置服务器地址
+var host = 'https://localhost:9500';
+
+// 管理员
+var refresh_token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzMzNDU2MDEsInR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNjczMTcyODAxLCJpc3MiOiJmbGFza19hY3Rpdml0eV9tYW5hZ2VfMjAyMyIsInVpZCI6MjAxMjExMDk5fQ.QrYjFX6gZ0JxZcxBNBesyqvfs7m09XN_fuCqcs_q9so';
+
+// 普通用户
+// var refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzMzNjEwNjYsInR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNjczMTg4MjY2LCJpc3MiOiJmbGFza19hY3Rpdml0eV9tYW5hZ2VfMjAyMyIsInVpZCI6MjAxMjEyMTI4fQ.Dvr8rl3ah-uBi9pwCj1yLoZ-AbqS9CTninA8mBq6ufE";
+
+// 超级管理员
+// var refresh_token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzMzNTMxODYsInR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNjczMTgwMzg2LCJpc3MiOiJmbGFza19hY3Rpdml0eV9tYW5hZ2VfMjAyMyIsInVpZCI6MTAwMDAwfQ.JbvUbsqe1BHgBxBoepIknT8szor2fDLQZhpJinTxbtk';
+
+var access_token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzMxMDY1MDAsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2NzMwOTkzMDAsImlzcyI6ImZsYXNrX2FjdGl2aXR5X21hbmFnZV8yMDIzIiwidWlkIjoyMDEyMTEwOTl9.v53atUqsCHrNKVNoKcfeqzXA_zLxeW_yxk6XlOWxuE0';
+
+module.exports={
+  host: host,
+  refresh_token: refresh_token,
+  access_token: access_token
+};

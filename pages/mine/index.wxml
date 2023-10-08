@@ -1,0 +1,85 @@
+<!--pages/mine/index.wxml-->
+
+<!-- 头部 -->
+<view class="cover">
+  <van-image round width="5rem" height="5rem" src="{{ avatarUrl+userInfo.avatar }}" bindtap="avatar" />
+  <view bindtap="wechatLogin">{{ userInfo.name }}</view>
+</view>
+
+<!-- 二宫格 -->
+
+  <block wx:if="{{ isUser }}">
+    <van-grid column-num="2">
+      <van-grid-item icon="cluster-o" text="班级: {{ userInfo.class.abbreviation }}" bind:click="view_class"/>
+      <van-grid-item icon="manager-o" text="辅导员: {{ userInfo.class.administrator.name }}" bind:click="view_admininfo" />
+    </van-grid>
+  </block>
+  <block wx:if="{{ isAdmin }}">
+    <van-grid column-num="2">
+      <van-grid-item icon="cluster-o" text="班级管理: {{ classcount }}" bind:click="view_class"/>
+      <van-grid-item icon="cluster-o" text="社团&部门: {{ classcount }}" bind:click="view_class"/>
+    </van-grid>
+  </block>
+
+
+<!-- 单元格 -->
+<van-cell-group>
+  <van-cell title="个人资料" icon="description" is-link link-type="navigateTo" url="/pages/info/user_Info/index" />
+  <van-cell title="微信绑定" icon="shield-o" is-link bind:click="bindwx" />
+  <!-- <van-cell title="用户联系" icon="friends-o" is-link="#" /> -->
+  <van-cell title="系统设置" icon="setting-o" is-link="#" />
+  <van-cell title="留言建议" icon="service-o" is-link="#" />
+  <van-cell title="关于系统" icon="info-o" is-link link-type="navigateTo" url="/pages/info/about_Info/index" />
+</van-cell-group>
+
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast"  />
+
+<!--  底部导览栏 -->
+<van-tabbar active="{{ active }}" bind:change="onChange" active-color="#B01C34" inactive-color="#000">
+  <van-tabbar-item id="index">
+    <image
+      slot="icon"
+      src="{{ tabbar_icon.index }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    <image
+      slot="icon-active"
+      src="{{ tabbar_icon.indexfill }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    首页
+  </van-tabbar-item>
+  <van-tabbar-item id="scan" info="{{ tip }}">
+    <image
+      slot="icon"
+      src="{{ tabbar_icon.scan }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    <image
+      slot="icon-active"
+      src="{{ tabbar_icon.scan }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    签到
+  </van-tabbar-item>
+  <van-tabbar-item id="mine">
+    <image
+      slot="icon"
+      src="{{ tabbar_icon.mine }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    <image
+      slot="icon-active"
+      src="{{ tabbar_icon.minefill }}"
+      mode="aspectFit"
+      style="width: 30px; height: 18px;"
+    />
+    个人中心
+  </van-tabbar-item>
+</van-tabbar>

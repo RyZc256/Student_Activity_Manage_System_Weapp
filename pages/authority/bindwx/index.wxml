@@ -1,0 +1,15 @@
+<!--pages/authority/bindwx/index.wxml-->
+<van-panel title="微信绑定" style="text-align: center;">
+  <view>
+    <van-cell-group>
+      <van-field label="UID：" model:value="{{ uid }}" placeholder="请输入用户名" />
+      <van-field label="密码：" model:value="{{ password }}" type="password" placeholder="请输入密码" />
+    </van-cell-group>
+  </view>
+  <van-divider />
+  <view>
+    <van-button round type="info" bind:click="bindwx" color="#B01C34" class="button">绑定</van-button>
+  </view>
+  <van-dialog id="van-dialog" />
+  <van-toast id="van-toast"  />
+</van-panel>

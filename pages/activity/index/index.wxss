@@ -1,0 +1,17 @@
+/* pages/activity/index/index.wxss */
+.cell-tit {
+  height: 20px;
+  font-size: 15px;
+  color: #646566;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.imagebox{
+  display:flex;    /*设置为flex布局*/
+  justify-content: center; /*水平居中*/
+ }
+ .imagebox image { 
+   width:160rpx;
+   height:90rpx;
+  }

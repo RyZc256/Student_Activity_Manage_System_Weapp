@@ -1,0 +1,30 @@
+<!--pages/user/info/index.wxml-->
+<van-panel title="个人信息" style="text-align: center;">
+  <view>
+    <van-cell-group title="该区域数据由管理员更改">
+      <van-field label="UID" model:value="{{ userInfo.id }}" border="{{ false }}" readonly />
+      <van-field label="姓名" model:value="{{ userInfo.name }}" border="{{ false }}" readonly />
+      <van-field label="年龄" model:value="{{ userInfo.age }}" border="{{ false }}" readonly />
+      <van-field label="身份证" model:value="{{ userInfo.idcard }}" border="{{ false }}" readonly />
+      <van-field label="性别" model:value="{{ userInfo.sex }}" border="{{ false }}" readonly/>
+      <van-field label="入学年份" model:value="{{ userInfo.join_time }}" border="{{ false }}" readonly />
+      <block wx:if="{{ !isAdmin }}">
+        <van-field label="学院" model:value="{{ userInfo.class.college.name }}" border="{{ false }}" readonly/>
+      </block>
+      <van-field wx:for="{{ userInfo.class }}" label="班级" model:value="{{ item.college.name }} - {{ item.name }}" border="{{ false }}" readonly/>
+      <van-field wx:for="{{ userInfo.department }}" label="社团&部门" model:value="{{ item.department.name }} - {{ item.job.name }}" border="{{ false }}" readonly/>
+      <van-divider contentPosition="center">可编辑区域</van-divider>
+      <van-field label="联系电话" model:value="{{ userInfo.tel }}" id="userInfo.tel" border="{{ false }}" bind:change="change" />
+      <van-field label="邮箱" model:value="{{ userInfo.mail }}" id="userInfo.mail" border="{{ false }}" bind:change="change" />
+      <van-field label="家庭住址" model:value="{{ userInfo.address }}" id="userInfo.address" border="{{ false }}" bind:change="change" />
+    </van-cell-group>
+  </view>
+  <van-divider />
+  <view>
+    <van-button round type="info" color="#B01C34" class="button" bind:click="edit">修改</van-button>
+  </view>
+  <van-divider />
+  <van-dialog id="van-dialog" />
+  <van-toast id="van-toast"  />
+  
+</van-panel>

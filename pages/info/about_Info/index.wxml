@@ -1,0 +1,13 @@
+<!--pages/about/index.wxml-->
+
+<van-panel title="关于系统" style="text-align: center;">
+</van-panel>
+<van-cell-group>
+      <van-cell title="开发者" value="{{ developer }}" />
+      <van-cell title="后端框架" value="Python Flask" />
+      <van-cell title="运行时间" value="{{ run_time }}" />
+      <van-cell title="项目地址" value="Github" bindtap="github"/>
+</van-cell-group>
+
+
+

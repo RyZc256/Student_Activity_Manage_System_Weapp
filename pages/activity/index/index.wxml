@@ -1,0 +1,36 @@
+<!--pages/activity/index/index.wxml-->
+<!-- 导航栏 -->
+<van-tabs active="{{ active }}" bind:change="tabsChange">
+  <van-tab title="今日活动">
+    <block wx:if="{{ todayIsNone }}">
+      <van-empty description="今日无活动" />
+    </block>
+  </van-tab>
+  <van-tab title="活动列表">
+    <van-search value="{{ keyword }}" placeholder="请输入搜索关键词" />
+    
+    <view class="cell-tit">
+      <van-checkbox icon-size="15px" value="{{ livechecked }}" checked-color="#B01C34" bind:change="checkboxChange">只看可参加</van-checkbox>
+    </view>
+    <view>
+      <van-panel wx:for="{{ activityInfo }}" id="{{ item.id }}" title="{{ item.name }}" desc="{{ item.simpleintro }}" status="{{ item.status }}"></van-panel>
+    </view>
+
+    <van-divider />
+
+  </van-tab>
+
+  <block wx:if="{{ isAdmin }}">
+    <van-tab title="活动管理">
+      <van-cell-group>
+        <van-cell icon="flag-o" title="发布活动" is-link link-type="navigateTo" url="/pages/activity/activity_release/index"/>
+        <van-cell icon="edit" title="编辑活动" is-link />
+        <van-cell icon="search" title="查看活动" is-link  />
+        <van-cell icon="down" title="导出活动记录" is-link  />
+      </van-cell-group>
+    </van-tab>
+  </block>
+  
+</van-tabs>
+<van-toast id="van-toast"  />
+

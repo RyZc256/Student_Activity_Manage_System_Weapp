@@ -1,0 +1,9 @@
+/* pages/index/index.wxss */
+.banner{
+  height: 400rpx; 
+  /* border: red 1px solid; */
+}
+.banner image{
+  height: 400rpx; 
+  width: 100%;
+}
